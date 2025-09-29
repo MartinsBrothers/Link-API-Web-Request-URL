@@ -1,0 +1,70 @@
+INSTALLATION GUIDE - MyAdvancedLibrary v1.0
+============================================
+
+STEP 1: EXTRACTION
+------------------
+1. Extract the zip file to your MetaTrader 4 directory
+2. Ensure the folder structure is maintained
+
+STEP 2: COMPILATION ORDER
+-------------------------
+1. FIRST: Compile Libraries/MyAdvancedLibrary.mq4
+   - This creates MyAdvancedLibrary.ex4
+   - Required for all other components
+
+2. THEN: Compile other files as needed
+   - Experts/ExampleEA.mq4
+   - Indicators/ExampleIndicator.mq4  
+   - Scripts/ExampleScript.mq4
+
+STEP 3: USAGE IN YOUR PROJECTS
+------------------------------
+Add this line to your EA/Indicator/Script:
+
+#include <MyAdvancedLibrary.mqh>
+
+Then use library functions:
+
+// Position management
+GetTotalProfit();
+CloseAllPositions(magicNumber);
+
+// Risk management  
+CalculateLotSize(riskPercent, stopLossPips);
+
+// Data services
+GetGMT_Offset();
+GetEconomicEvents();
+
+STEP 4: CONFIGURATION
+---------------------
+Edit Include/LibraryConfig.mqh to:
+- Add your API endpoints
+- Configure risk parameters
+- Set up time services
+
+STEP 5: TESTING
+---------------
+1. Run ExampleScript.mq4 to test basic functionality
+2. Run ExampleEA.mq4 to see integration example
+3. Check Journal tab for library initialization messages
+
+SUPPORT:
+--------
+This is a framework library. You need to:
+- Implement your specific trading logic
+- Add your data source integrations
+- Customize risk parameters for your strategy
+
+TROUBLESHOOTING:
+----------------
+❌ "Cannot load library" error:
+   → Compile MyAdvancedLibrary.mq4 first
+
+❌ "Function not found" error:  
+   → Check #include path is correct
+   → Ensure .ex4 file exists in Libraries folder
+
+❌ Compilation errors:
+   → Check all files are in correct folders
+   → Verify MetaTrader 4 is updated
